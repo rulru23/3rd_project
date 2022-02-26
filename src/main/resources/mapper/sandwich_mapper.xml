@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ldg.subway.sandwich.SandwichDAO">
+	<insert id="insertSandwich">
+		INSERT INTO Sandwich
+		values((Select NVL(max(sandwich_id)+1,1) from sandwich), #{payment_id}, 
+			(SELECT meat_id
+			FROM meat
+			Where meat = #{meat})
+		, #{bread_id}, #{cheese_id}, #{sauce_id}, #{veg_id})
+	</insert>
+	<select id="getAllSandwichByid" resultType="SandwichVO">
+		Select *
+		from Sandwich
+		where payment_id = #{payment_id}
+		order by sandwich_id desc
+	</select>
+	<delete id="deleteSandwich">
+		Delete
+		from sandwich
+		where sandwich_id = #{sandwich_id}
+	</delete>
+</mapper>

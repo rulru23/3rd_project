@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ldg.subway.sandwich.veg.VegDAO">
+	<select id="getAllVeg" resultType="VegVO">
+		Select *
+		from veg
+	</select>
+	<select id="getVegById" resultType="VegVO">
+		Select *
+		from veg
+		where veg_id = #{veg_id}
+	</select>
+</mapper>

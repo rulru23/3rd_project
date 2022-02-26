@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ldg.subway.side.SideDAO">
+	<insert id="insertSide">
+		INSERT INTO Side
+		Values(
+			(Select NVL(max(side_id)+1,1) from side)
+		, #{payment_id}, #{cookie_id}, #{potatoe_id}, #{beverage_id})
+	</insert>
+	<select id="getAllSideById" resultType="sideVO">
+		Select *
+		from side
+		where payment_id = #{payment_id}
+		order by side_id desc
+	</select>
+	<delete id = "deleteSide">
+		Delete
+		from side
+		where side_id = #{side_id}
+	</delete>
+</mapper>

@@ -1,0 +1,123 @@
+@charset "EUC-KR";
+
+*{
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+   user-select: none;
+}
+
+.html,body{
+  font-family: sans-serif;
+  height: 100%;
+  margin:0;
+  padding:0;
+  min-width: 1280px;
+  overflow-x: hidden;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a {
+  color: #333;
+  cursor: pointer;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  height:100%;
+}
+
+.main-content{
+  flex:1; 
+}
+
+
+/* header */
+
+.h_wrap{
+  /* height: 170px;  */
+  width:100%; 
+  border-bottom:1px solid #cfd8dc; 
+  border-top:5px solid #087f23;
+}
+
+.h_top{
+  display:flex;
+}
+
+header a {
+  text-decoration: none;
+}
+
+#logo{
+  font-size: 25px;
+  font-weight: bold;
+  margin: 43px 430px;
+  padding-left:125px;
+  @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Karla:wght@300&family=Lobster&family=Roboto+Mono:wght@300&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;1,400&family=Ubuntu:wght@300&display=swap');
+}
+
+#util a{
+  font-size:12px;
+  padding:5px;
+}
+
+.menu_wrap{
+  display: flex;
+}
+
+.menu_bar{
+  font-size:16px;
+  margin: 30px 38px;
+  font-weight: bold;
+	@font-face {
+	    font-family: 'yg-jalnan';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+}
+
+.menu_bar a{
+  padding: 0 56px;
+}
+
+.menu_bar a:hover{
+	color:#087f23;
+}
+
+
+#iframe{
+	border:0;
+}
+
+
+/* footer */
+
+footer{
+  display:flex; 
+  width: 100%; 
+  padding:15px 0;
+  margin:0;   
+  font-size: 13px;
+  padding-right:580px; 
+  color: #fff;
+  background: #333;
+}
+
+.f_tab ul{
+  padding:0;
+}
+
+.f_tab ul li{
+  display: inline;
+  margin-right: 12px;
+}

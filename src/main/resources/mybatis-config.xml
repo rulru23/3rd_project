@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="PaymentsVO" type="com.ldg.subway.payments.PaymentsVO"/>
+		<typeAlias alias="MeatVO" type="com.ldg.subway.sandwich.meat.MeatVO"/>
+		<typeAlias alias="BoardVO" type="com.ldg.subway.board.BoardVO"/>
+		<typeAlias alias="MemberVO" type="com.ldg.subway.member.MemberVO"/>
+		<typeAlias alias="SandwichVO" type="com.ldg.subway.sandwich.SandwichVO"/>
+		<typeAlias alias="SideVO" type="com.ldg.subway.side.SideVO"/>
+		<typeAlias alias="BreadVO" type="com.ldg.subway.sandwich.bread.BreadVO"/>
+		<typeAlias alias="CheeseVO" type="com.ldg.subway.sandwich.cheese.CheeseVO"/>
+		<typeAlias alias="SauceVO" type="com.ldg.subway.sandwich.sauce.SauceVO"/>
+		<typeAlias alias="VegVO" type="com.ldg.subway.sandwich.veg.VegVO"/>
+		<typeAlias alias="BeverageVO" type="com.ldg.subway.side.beverage.BeverageVO"/>
+		<typeAlias alias="CookieVO" type="com.ldg.subway.side.cookie.CookieVO"/>
+		<typeAlias alias="PotatoeVO" type="com.ldg.subway.side.potatoe.PotatoeVO"/>
+	</typeAliases>
+</configuration>

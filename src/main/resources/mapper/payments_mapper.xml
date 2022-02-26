@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ldg.subway.payments.PaymentsDAO">
+	<select id="getAllPayments" resultType="PaymentsVO">
+		SELECT
+    		* FROM payments WHERE imp_uid IS NOT NULL
+    		ORDER BY payment_id DESC
+	</select>
+	<insert id="insertPayments">
+		INSERT INTO payments
+			VALUES (#{imp_uid} , #{merchant_uid} , #{payment_date} ,#{menu_price} ,#{mem_id} , (select NVL(max(payment_id)+1,1) from payments))
+	</insert>
+	<delete id="deletePayments">
+		DELETE FROM payments 
+			WHERE imp_uid = #{imp_uid}
+	</delete>
+	<insert id="insertInitialPayments" parameterType="paymentsVO">
+		<selectKey resultType="int"  keyProperty="payment_id" order="BEFORE">
+			Select NVL(max(payment_id)+1,1) from payments
+		</selectKey>
+		INSERT INTO payments (mem_id, payment_id)
+			VALUES (#{mem_id}, #{payment_id})
+	</insert>
+	<select id="getPaymentsById" resultType="String">
+		SELECT
+    		payment_id FROM payments
+    		WHERE mem_id = #{mem_id} and imp_uid is null
+	</select>
+	<update id="paymentsProcess">
+		UPDATE payments
+		SET menu_price = 
+			(	SELECT (menu_price + #{menu_price})
+				From payments
+				WHERE payment_id = #{payment_id}
+			)
+		WHERE payment_id = #{payment_id}
+	</update>
+	<select id="getPayment" resultType="PaymentsVO">
+		SELECT
+    		* FROM payments
+    	where payment_id = #{payment_id}
+	</select>
+	<update id="priceDecrease">
+		UPDATE payments
+		SET menu_price = 
+			(	SELECT (menu_price - #{menu_price})
+				From payments
+				WHERE payment_id = #{payment_id}
+			)
+		WHERE payment_id = #{payment_id}
+	</update>
+	<update id="updatePaymentInfo">
+		UPDATE payments
+			SET imp_uid = #{imp_uid}, merchant_uid = #{merchant_uid}, payment_date = #{payment_date}
+			WHERE payment_id = #{payment_id}
+	</update>
+</mapper>

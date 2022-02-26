@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ldg.subway.sandwich.meat.MeatDAO">
+	<select id="getAllMeat" resultType="MeatVO">
+		Select *
+		from Meat
+	</select>
+	<select id="getMeatById" resultType="MeatVO">
+		Select *
+		from Meat
+		where meat_id = #{meat_id}
+	</select>
+</mapper>

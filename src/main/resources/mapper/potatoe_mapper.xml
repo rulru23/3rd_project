@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ldg.subway.side.potatoe.PotatoeDAO">
+	<select id="getAllPotatoe" resultType="PotatoeVO">
+		Select *
+		from Potatoe
+	</select>
+	
+	<select id="getPotatoeById" resultType="PotatoeVO">
+		Select *
+		from Potatoe
+		where potatoe_id = #{potatoe_id}
+	</select>
+</mapper>
